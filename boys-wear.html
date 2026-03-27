@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boys Wear</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+<style>
+    /* Header */
+.boys-header {
+  background: 
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('images/kids/kids1.webp') center center / cover no-repeat;
+  
+  padding: 90px 0;
+}
+
+/* Filter Buttons */
+.filter-btn {
+  border: 1px solid #000;
+  padding: 6px 18px;
+  margin: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Card */
+.boys-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.boys-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+.boys-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain; /* FULL IMAGE */
+  background: #f8f8f8;
+  margin-bottom: 10px;
+}
+
+/* Price */
+.price {
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* Badges */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 20px;
+}
+
+.badge-new {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.badge-trend {
+  background: #ff6f00;
+  color: #fff;
+}
+
+</style>
+<body>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">IVALIN</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="halfSareeDrop" role="button" data-bs-toggle="dropdown">
+            Half Sarees
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="designer-halfsaree.html">Designer Half Saree</a></li>
+            <li><a class="dropdown-item" href="wedding-halfsaree.html">Wedding Half Saree</a></li>
+            <li><a class="dropdown-item" href="traditional-halfsaree.html">Traditional Half Saree</a></li>
+            <li><a class="dropdown-item" href="party-half-saree.html">Party Wear Half Saree</a></li>
+            <li><a class="dropdown-item" href="festival-halfsaree.html">Festival Half Saree</a></li>
+            <li><a class="dropdown-item" href="casual-halfsaree.html">Casual Half Saree</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="saree.html">Sarees</a></li>
+        <li class="nav-item"><a class="nav-link" href="salwars.html">Salwars</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="kidsDrop" role="button" data-bs-toggle="dropdown">
+            Kids
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="boys-wear.html">Boys Wear</a></li>
+            <li><a class="dropdown-item" href="girls-dress.html">Girls Wear</a></li>
+            <li><a class="dropdown-item" href="baby-care.html">Baby Care</a></li>
+            <li><a class="dropdown-item" href="toys.html">Toys</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-danger" href="product.html">Sale</a></li>
+      </ul>
+
+      <div class="d-flex gap-3 align-items-center">
+        <i class="bi bi-search fs-5 cursor-pointer"></i>
+        <i class="bi bi-heart fs-5 cursor-pointer"></i>
+        <a href="cart.html" class="text-dark position-relative">
+          <i class="bi bi-cart fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount" style="font-size: 10px;">0</span>
+        </a>
+        <!-- Profile dropdown  -->
+        <div class="dropstart">
+          <a href="#" id="profileMenu" class="d-flex align-items-center text-dark dropdown-toggle profile-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="profile-icon-wrap">
+              <i class="bi bi-person-circle profile-icon" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="dropdown-menu shadow-sm p-3 profile-dropdown" aria-labelledby="profileMenu" style="min-width:320px;">
+            <div class="profile-header d-flex align-items-center gap-3 mb-2">
+              <div>
+                <i class="bi bi-person-circle profile-icon-lg" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div id="profileName" class="fw-bold">Guest</div>
+                <div id="profileEmail" class="text-muted" style="font-size:13px">Not signed in</div>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <a href="order-success.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">My Orders</a>
+              </div>
+              <div class="col-6">
+                <a href="wishlist.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Wishlist</a>
+              </div>
+              <div class="col-6">
+                <a href="cart.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Cart</a>
+              </div>
+              <div class="col-6">
+                <a href="#" id="couponsLink" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Coupons</a>
+              </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="d-grid gap-2">
+              <a href="login.html" id="signInBtn" class="btn btn-outline-primary btn-sm">Sign In</a>
+              <a href="signup.html" id="signUpBtn" class="btn btn-primary btn-sm">Create Account</a>
+              <button id="logoutBtn" class="btn btn-light btn-sm d-none">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HEADER ===== -->
+<section class="boys-header text-center text-white">
+  <div class="container">
+    <h1>Boys Wear</h1>
+    <p>Casual • Party • Sports</p>
+  </div>
+</section>
+
+<!-- ===== FILTER ===== -->
+<section class="container my-4 text-center">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="casual">Casual</button>
+  <button class="filter-btn" data-filter="party">Party Wear</button>
+  <button class="filter-btn" data-filter="sports">Sports</button>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="container mb-5">
+  <div class="row g-4">
+
+    <!-- Product 1 -->
+    <div class="col-lg-3 col-md-4 col-sm-6 product casual">
+      <div class="boys-card">
+        <span class="badge badge-new">New</span>
+    <a href="products.html?img=images/kids/boys-wear1.jpg&name=Printed%20Casual%20Set&price=899">
+          <img src="images/kids/boys-wear1.jpg" alt="Boys Wear">
+        </a>
+        <h6>Printed Casual Set</h6>
+        <p class="price">₹899</p>
+    <button class="btn btn-dark btn-sm add-to-cart"
+      onclick="addToCartFromList(
+        'Printed Casual Set',
+        899,
+        'images/kids/boys-wear1.jpg'
+      )">
+      Add to Cart
+    </button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col-lg-3 col-md-4 col-sm-6 product party">
+      <div class="boys-card">
+        <span class="badge badge-trend">Trending</span>
+    <a href="products.html?img=images/kids/boys-wear2.webp&name=Party%20Wear%20Shirt%20Set&price=1299">
+          <img src="images/kids/boys-wear2.webp" alt="Boys Wear">
+        </a>
+        <h6>Party Wear Shirt Set</h6>
+        <p class="price">₹1,299</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Party Wear Shirt Set',
+                1299,
+                'images/kids/boys-wear2.webp'
+              )">
+              Add to Cart
+            </button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col-lg-3 col-md-4 col-sm-6 product sports">
+      <div class="boys-card">
+        <a href="products.html?img=images/kids/boys-wear3.webp&name=Sports%20T-Shirt%20%26%20Shorts&price=749">
+          <img src="images/kids/boys-wear3.webp" alt="Boys Wear">
+        </a>
+        <h6>Sports T-Shirt & Shorts</h6>
+        <p class="price">₹749</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Sports T-Shirt & Shorts',
+                749,
+                'images/kids/boys-wear3.webp'
+              )">
+              Add to Cart
+            </button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col-lg-3 col-md-4 col-sm-6 product casual">
+      <div class="boys-card">
+        <a href="products.html?img=images/kids/boys-wear4.webp&name=Denim%20Shirt%20Combo&price=1099">
+          <img src="images/kids/boys-wear4.webp" alt="Boys Wear">
+        </a>
+        <h6>Denim Shirt Combo</h6>
+        <p class="price">₹1,099</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Denim Shirt Combo',
+                1099,
+                'images/kids/boys-wear4.webp'
+              )">
+              Add to Cart
+            </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-custom">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Brand -->
+      <div class="col-md-4">
+        <h4 class="footer-brand">IVALIN</h4>
+        <p class="footer-text">
+          Celebrating the elegance of Indian tradition with contemporary designs.
+          Premium ethnic wear collections for every occasion.
+        </p>
+        <div class="footer-social">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div class="col-md-2">
+        <h6 class="footer-title">Shop</h6>
+        <ul class="footer-links">
+          <li><a href="#">Half Sarees</a></li>
+          <li><a href="#">Sarees</a></li>
+          <li><a href="#">Salwars</a></li>
+          <li><a href="#">Kids Wear</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Care -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Customer Care</h6>
+        <ul class="footer-links">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchange</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Newsletter</h6>
+        <p class="footer-text">Get updates on new arrivals & offers.</p>
+        <div class="d-flex gap-2">
+          <input type="email" class="form-control footer-input" placeholder="Your email">
+          <button class="btn btn-dark btn-sm">Join</button>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start">
+      <p class="mb-2 mb-md-0">&copy; 2026 feather softwares. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Filter Script -->
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const products = document.querySelectorAll('.product');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      products.forEach(p => {
+        p.style.display =
+          filter === 'all' || p.classList.contains(filter)
+            ? 'block'
+            : 'none';
+      });
+    });
+  });
+</script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart-count.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+</body>
+</html>

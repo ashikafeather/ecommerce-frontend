@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | IVALIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* PRODUCT BOX */
+    .product-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+    }
+
+    .main-img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .thumb img {
+      width: 70px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 2px solid transparent;
+    }
+
+    .thumb img:hover {
+      border-color: #b33939;
+    }
+
+    .brand {
+      color: #888;
+      letter-spacing: 2px;
+    }
+
+    .title {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .price {
+      color: #b33939;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .size-btn {
+      border: 2px solid #ddd;
+      background: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .size-btn.active {
+      border-color: #b33939;
+      color: #b33939;
+    }
+
+    .qty-box {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .qty-box button {
+      background: #f2f2f2;
+      border: none;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .qty-box span {
+      padding: 8px 20px;
+    }
+
+    .add-cart-btn {
+      background: #b33939;
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">IVALIN</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="halfSareeDrop" role="button" data-bs-toggle="dropdown">
+              Half Sarees
+            </a>
+            <ul class="dropdown-menu border-0 shadow-sm">
+              <li><a class="dropdown-item" href="designer-halfsaree.html">Designer Half Saree</a></li>
+              <li><a class="dropdown-item" href="wedding-halfsaree.html">Wedding Half Saree</a></li>
+              <li><a class="dropdown-item" href="traditional-halfsaree.html">Traditional Half Saree</a></li>
+              <li><a class="dropdown-item" href="party-half-saree.html">Party Wear Half Saree</a></li>
+              <li><a class="dropdown-item" href="festival-halfsaree.html">Festival Half Saree</a></li>
+              <li><a class="dropdown-item" href="casual-halfsaree.html">Casual Half Saree</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="saree.html">Sarees</a></li>
+          <li class="nav-item"><a class="nav-link" href="salwars.html">Salwars</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="kidsDrop" role="button" data-bs-toggle="dropdown">
+              Kids
+            </a>
+            <ul class="dropdown-menu border-0 shadow-sm">
+              <li><a class="dropdown-item" href="boys-wear.html">Boys Wear</a></li>
+              <li><a class="dropdown-item" href="girls-wear.html">Girls Wear</a></li>
+              <li><a class="dropdown-item" href="baby-care.html">Baby Care</a></li>
+              <li><a class="dropdown-item" href="toys.html">Toys</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link text-danger" href="product.html">Sale</a></li>
+        </ul>
+
+        <div class="d-flex gap-3 align-items-center">
+          <i class="bi bi-search fs-5 cursor-pointer"></i>
+          <i class="bi bi-heart fs-5 cursor-pointer"></i>
+          <a href="cart.html" class="text-dark position-relative">
+            <i class="bi bi-cart fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount"
+              style="font-size: 10px;">0</span>
+          </a>
+          <!-- Profile dropdown  -->
+        <div class="dropstart">
+          <a href="#" id="profileMenu" class="d-flex align-items-center text-dark dropdown-toggle profile-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="profile-icon-wrap">
+              <i class="bi bi-person-circle profile-icon" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="dropdown-menu shadow-sm p-3 profile-dropdown" aria-labelledby="profileMenu" style="min-width:320px;">
+            <div class="profile-header d-flex align-items-center gap-3 mb-2">
+              <div>
+                <i class="bi bi-person-circle profile-icon-lg" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div id="profileName" class="fw-bold">Guest</div>
+                <div id="profileEmail" class="text-muted" style="font-size:13px">Not signed in</div>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <a href="order-success.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">My Orders</a>
+              </div>
+              <div class="col-6">
+                <a href="wishlist.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Wishlist</a>
+              </div>
+              <div class="col-6">
+                <a href="cart.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Cart</a>
+              </div>
+              <div class="col-6">
+                <a href="#" id="couponsLink" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Coupons</a>
+              </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="d-grid gap-2">
+              <a href="login.html" id="signInBtn" class="btn btn-outline-primary btn-sm">Sign In</a>
+              <a href="signup.html" id="signUpBtn" class="btn btn-primary btn-sm">Create Account</a>
+              <button id="logoutBtn" class="btn btn-light btn-sm d-none">Logout</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRODUCT -->
+  <section class="container py-5">
+    <div class="product-box">
+
+      <div class="row align-items-center">
+
+        <!-- IMAGE COLUMN -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600" id="productImage"
+            class="main-img">
+
+          <div class="d-flex gap-2 mt-3 thumb">
+            <img id="thumb1" onclick="changeImage(this)">
+            <img id="thumb2" onclick="changeImage(this)">
+            <img id="thumb3" onclick="changeImage(this)">
+          </div>
+
+        </div>
+
+        <!-- DETAILS COLUMN -->
+        <div class="col-md-6">
+          <span class="brand">HANDLOOM COLLECTION</span>
+          <h1 class="title mt-2" id="productName"></h1>
+          <p class="price">₹<span id="unitPrice"></span>
+          </p>
+
+          <p>Select Size</p>
+          <div class="d-flex gap-2 mb-3">
+            <button class="size-btn" onclick="selectSize(this)">S</button>
+            <button class="size-btn active" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <span>Quantity</span>
+            <div class="qty-box">
+              <button onclick="changeQty(-1)">-</button>
+              <span id="qty">1</span>
+              <button onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+
+          <p>Total: ₹<span id="totalPrice">5499</span></p>
+
+          <button class="add-cart-btn w-100" onclick="addToCart()">ADD TO CART</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row gy-4">
+
+        <!-- Brand -->
+        <div class="col-md-4">
+          <h4 class="footer-brand">IVALIN</h4>
+          <p class="footer-text">
+            Celebrating the elegance of Indian tradition with contemporary designs.
+            Premium ethnic wear collections for every occasion.
+          </p>
+          <div class="footer-social">
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+          </div>
+        </div>
+
+        <!-- Shop -->
+        <div class="col-md-2">
+          <h6 class="footer-title">Shop</h6>
+          <ul class="footer-links">
+            <li><a href="#">Half Sarees</a></li>
+            <li><a href="#">Sarees</a></li>
+            <li><a href="#">Salwars</a></li>
+            <li><a href="#">Kids Wear</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div class="col-md-3">
+          <h6 class="footer-title">Customer Care</h6>
+          <ul class="footer-links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns & Exchange</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-md-3">
+          <h6 class="footer-title">Newsletter</h6>
+          <p class="footer-text">Get updates on new arrivals & offers.</p>
+          <div class="d-flex gap-2">
+            <input type="email" class="form-control footer-input" placeholder="Your email">
+            <button class="btn btn-dark btn-sm">Join</button>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="footer-line">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start">
+        <p class="mb-2 mb-md-0">&copy; 2026 feather softwares. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+
+  <!-- SCRIPT -
+  <script>
+let qty = 1;
+let size = "M";
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const price = Number(params.get("price"));
+const img = params.get("img");
+
+const img1 = params.get("img1") || img;
+const img2 = params.get("img2") || img;
+const img3 = params.get("img3") || img;
+
+document.getElementById("productName").innerText = name;
+document.getElementById("unitPrice").innerText = price;
+document.getElementById("totalPrice").innerText = price;
+
+document.getElementById("productImage").src = img;
+document.getElementById("thumb1").src = img1;
+document.getElementById("thumb2").src = img2;
+document.getElementById("thumb3").src = img3;
+
+let currentImage = img;
+
+function changeImage(el) {
+  document.getElementById("productImage").src = el.src;
+  currentImage = el.src;
+}
+
+function selectSize(btn) {
+  document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  size = btn.innerText;
+}
+
+function changeQty(v) {
+  qty += v;
+  if (qty < 1) qty = 1;
+  document.getElementById("qty").innerText = qty;
+  document.getElementById("totalPrice").innerText = qty * price;
+}
+
+function addToCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({
+    name,
+    price,
+    img: currentImage,   // ✅ thumbnail selected image
+    size,
+    qty
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  window.location.href = "cart.html";
+}
+</script>
+
+<script>
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = 0;
+  cart.forEach(item => total += item.qty);
+
+  const badge = document.getElementById("cartCount");
+  if (badge) {
+    badge.innerText = total;
+    badge.style.display = total > 0 ? "inline-block" : "none";
+  }
+}
+updateCartCount();
+</script>
+
+
+  <script>
+    // 1. Data-LocalStorage
+    window.onload = function () {
+      const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+      if (!product) {
+        document.getElementById("cartDetails").innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="bi bi-cart-x display-1 text-muted"></i>
+                    <h2 class="mt-3">Your cart is empty</h2>
+                    <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
+                </div>`;
+        document.getElementById("cartCount").innerText = "0";
+        return;
+      }
+
+      // 2. Dynamic-ah Page- details 
+      document.getElementById("cartDetails").innerHTML = `
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="${product.img}" class="main-img" id="productImage">
+            </div>
+            <div class="col-md-6 px-lg-5">
+                <span class="brand">HANDLOOM COLLECTION</span>
+                <h1 class="display-5 fw-bold mt-2">${product.name}</h1>
+                <p class="price">₹<span id="unitPrice">${product.price}</span></p>
+                <hr>
+                
+                <p class="fw-bold">Size Selected</p>
+                <div class="d-flex gap-2 mb-4">
+                    <button class="size-btn active">${product.size || 'M'}</button>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <span class="fw-bold">Quantity</span>
+                    <div class="qty-box">
+                        <button onclick="updateQty(-1)">-</button>
+                        <span id="qty" class="px-3 fw-bold">${product.qty}</span>
+                        <button onclick="updateQty(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="bg-light p-3 rounded mb-4">
+                    <div class="d-flex justify-content-between">
+                        <span>Subtotal:</span>
+                        <span class="fw-bold">₹${product.price * product.qty}</span>
+                    </div>
+                    <div class="d-flex justify-content-between text-success">
+                        <span>Shipping:</span>
+                        <span>FREE</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark btn-lg w-100 py-3 rounded-pill shadow" onclick="proceedToBuy()">PROCEED TO CHECKOUT</button>
+            </div>
+        `;
+    };
+
+    function updateQty(change) {
+      let product = JSON.parse(localStorage.getItem("selectedProduct"));
+      product.qty = Math.max(1, (product.qty || 1) + change);
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      location.reload(); 
+    }
+
+    function proceedToBuy() {
+      alert("Proceeding to payment...");
+    }
+  </script>-->
+
+ <script>
+let qty = 1;
+let currentProduct = null;
+let currentImage = "";
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  if (!id) return;
+
+  fetch("http://localhost:8080/api/products/" + id)
+    .then(res => res.json())
+    .then(product => {
+
+      currentProduct = product;
+
+      const imageUrl = "http://localhost:8080/uploads/" + product.image;
+      currentImage = imageUrl;
+
+      // Same admin uploaded image
+      document.getElementById("productImage").src = imageUrl;
+      document.getElementById("thumb1").src = imageUrl;
+      document.getElementById("thumb2").src = imageUrl;
+      document.getElementById("thumb3").src = imageUrl;
+
+      // Same admin details
+      document.getElementById("productName").innerText = product.name;
+      document.getElementById("unitPrice").innerText = product.price;
+      document.getElementById("totalPrice").innerText = product.price;
+
+    });
+});
+
+function changeImage(el) {
+  document.getElementById("productImage").src = el.src;
+  currentImage = el.src;
+}
+
+function changeQty(v) {
+  qty += v;
+  if (qty < 1) qty = 1;
+
+  document.getElementById("qty").innerText = qty;
+
+  const price = parseInt(document.getElementById("unitPrice").innerText);
+  document.getElementById("totalPrice").innerText = qty * price;
+}
+
+function addToCart() {
+
+  if (!currentProduct) return;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({
+    id: currentProduct.id,
+    name: currentProduct.name,
+    price: currentProduct.price,
+    img: currentImage,
+    size: document.querySelector(".size-btn.active")?.innerText || "M",
+    qty: qty
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  window.location.href = "cart.html";
+}
+</script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/cart-count.js"></script>
+
+</body>
+
+</html>

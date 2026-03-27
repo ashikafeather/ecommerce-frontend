@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ivalin Style Ecommerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">IVALIN</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="halfSareeDrop" role="button" data-bs-toggle="dropdown">
+            Half Sarees
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="designer-halfsaree.html">Designer Half Saree</a></li>
+            <li><a class="dropdown-item" href="wedding-halfsaree.html">Wedding Half Saree</a></li>
+            <li><a class="dropdown-item" href="traditional-halfsaree.html">Traditional Half Saree</a></li>
+            <li><a class="dropdown-item" href="party-half-saree.html">Party Wear Half Saree</a></li>
+            <li><a class="dropdown-item" href="festival-halfsaree.html">Festival Half Saree</a></li>
+            <li><a class="dropdown-item" href="casual-halfsaree.html">Casual Half Saree</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="saree.html">Sarees</a></li>
+        <li class="nav-item"><a class="nav-link" href="salwars.html">Salwars</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="kidsDrop" role="button" data-bs-toggle="dropdown">
+            Kids
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="boys-wear.html">Boys Wear</a></li>
+            <li><a class="dropdown-item" href="girls-dress.html">Girls Wear</a></li>
+            <li><a class="dropdown-item" href="baby-care.html">Baby Care</a></li>
+            <li><a class="dropdown-item" href="toys.html">Toys</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-danger" href="product.html">Sale</a></li>
+      </ul>
+
+      <div class="d-flex gap-3 align-items-center">
+        <i class="bi bi-search fs-5 cursor-pointer"></i>
+        <i class="bi bi-heart fs-5 cursor-pointer"></i>
+        <a href="cart.html" class="text-dark position-relative">
+          <i class="bi bi-cart fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount" style="font-size: 10px;">0</span>
+        </a>
+        <!-- Profile dropdown  -->
+        <div class="dropstart">
+          <a href="#" id="profileMenu" class="d-flex align-items-center text-dark dropdown-toggle profile-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="profile-icon-wrap">
+              <i class="bi bi-person-circle profile-icon" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="dropdown-menu shadow-sm p-3 profile-dropdown" aria-labelledby="profileMenu" style="min-width:320px;">
+            <div class="profile-header d-flex align-items-center gap-3 mb-2">
+              <div>
+                <i class="bi bi-person-circle profile-icon-lg" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div id="profileName" class="fw-bold">Guest</div>
+                <div id="profileEmail" class="text-muted" style="font-size:13px">Not signed in</div>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <a href="order-success.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">My Orders</a>
+              </div>
+              <div class="col-6">
+                <a href="wishlist.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Wishlist</a>
+              </div>
+              <div class="col-6">
+                <a href="cart.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Cart</a>
+              </div>
+              <div class="col-6">
+                <a href="#" id="couponsLink" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Coupons</a>
+              </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="d-grid gap-2">
+              <a href="login.html" id="signInBtn" class="btn btn-outline-primary btn-sm">Sign In</a>
+              <a href="signup.html" id="signUpBtn" class="btn btn-primary btn-sm">Create Account</a>
+              <button id="logoutBtn" class="btn btn-light btn-sm d-none">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ================= HERO SLIDER ================= -->
+<section class="hero-slider text-white">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active hero-slide" style="background-image:url('images/home1.webp')">
+        <div class="overlay"></div>
+        <div class="container text-center hero-content">
+          <h1 class="fw-bold">Exclusive Ethnic Collections</h1>
+          <p class="lead">Shop the latest Half Sarees</p>
+          <a href="products.html" class="btn btn-light btn-lg">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item hero-slide" style="background-image:url('images/home2.jpg')">
+        <div class="overlay"></div>
+        <div class="container text-center hero-content">
+          <h1 class="fw-bold">Wedding & Bridal Wear</h1>
+          <p class="lead">Premium Silk Sarees</p>
+          <a href="products.html" class="btn btn-light btn-lg">Explore</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item hero-slide" style="background-image:url('images/bridal.jpg')">
+        <div class="overlay"></div>
+        <div class="container text-center hero-content">
+          <h1 class="fw-bold">Kids & Festive Collections</h1>
+          <p class="lead">Trendy & Comfortable Styles</p>
+          <a href="products.html" class="btn btn-light btn-lg">View Collection</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="container my-5">
+  <div class="row text-center">
+
+    <div class="col-md-3 col-6 mb-4">
+      <div class="category-card">
+       <a href="halfsarees.html"><img src="images/halfsarees/halfsaree1.jpg" class="category-img-round"></a>
+        <h6 class="mt-2">Half Sarees</h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+      <div class="category-card">
+       <a href="saree.html"><img src="images/sarees/saree1.jpg" class="category-img-round"></a>
+        <h6 class="mt-2">Silk Sarees</h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+      <div class="category-card">
+        <a href="salwars.html"><img src="images/salwars/salwars1.jpg" class="category-img-round"></a>
+        <h6 class="mt-2">Salwars</h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+      <div class="category-card">
+        <a href="kids.html"><img src="images/kids/kids1.webp" class="category-img-round"></a>
+        <h6 class="mt-2">Kids Wear</h6>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= BEST SELLERS ================= -->
+<section class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">Best Sellers</h3>
+    <a href="product.html" class="view-all-link">View All</a>
+  </div>
+
+  <div class="row">
+    <!-- Product -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card product-card">
+        <img src="images/halfsarees/halfsaree2.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h6>Designer Half Saree</h6>
+          <p class="text-danger fw-bold">₹5,750</p>
+          <a href="product.html" class="btn btn-outline-dark btn-sm">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card product-card">
+        <img src="images/sarees/saree1.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h6>Silk Saree</h6>
+          <p class="text-danger fw-bold">₹6,999</p>
+          <a href="product.html" class="btn btn-outline-dark btn-sm">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card product-card">
+        <img src="images/anarkali.webp" class="card-img-top">
+        <div class="card-body text-center">
+          <h6>Anarkali Suit</h6>
+          <p class="text-danger fw-bold">₹4,250</p>
+          <a href="product.html" class="btn btn-outline-dark btn-sm">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card product-card">
+        <img src="images/kids-lehaga.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h6>Kids Lehenga</h6>
+          <p class="text-danger fw-bold">₹2,999</p>
+          <a href="product.html" class="btn btn-outline-dark btn-sm">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="container my-5">
+  <h3 class="text-center mb-4" data-aos="fade-up">
+    What Our Customers Say
+  </h3>
+
+  <div class="row g-4">
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Beautiful half saree! Quality and fitting was perfect.
+        </p>
+        <h6 class="review-name">Anitha R</h6>
+        <span class="review-location">Chennai</span>
+      </div>
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">
+          Loved the silk saree. Fabric feels very premium.
+        </p>
+        <h6 class="review-name">Meenakshi S</h6>
+        <span class="review-location">Madurai</span>
+      </div>
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Kids lehenga was amazing 😍 My daughter loved it.
+        </p>
+        <h6 class="review-name">Priya K</h6>
+        <span class="review-location">Coimbatore</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER SECTION ================= -->
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <h2>Join the World of Mabia</h2>
+    <p>
+      Subscribe to receive updates on new arrivals, styling tips,
+      and exclusive access to our private sales.
+    </p>
+
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address">
+      <button>SUBSCRIBE</button>
+    </div>
+  </div>
+</section><br><br>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-custom">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Brand -->
+      <div class="col-md-4">
+        <h4 class="footer-brand">IVALIN</h4>
+        <p class="footer-text">
+          Celebrating the elegance of Indian tradition with contemporary designs.
+          Premium ethnic wear collections for every occasion.
+        </p>
+        <div class="footer-social">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div class="col-md-2">
+        <h6 class="footer-title">Shop</h6>
+        <ul class="footer-links">
+          <li><a href="#">Half Sarees</a></li>
+          <li><a href="#">Sarees</a></li>
+          <li><a href="#">Salwars</a></li>
+          <li><a href="#">Kids Wear</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Care -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Customer Care</h6>
+        <ul class="footer-links">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchange</a></li>
+          <li><a href="#">Track Order</a></li>
+           <li><a href="admin/admin-login.html">Admin</a></li>
+
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Newsletter</h6>
+        <p class="footer-text">Get updates on new arrivals & offers.</p>
+        <div class="d-flex gap-2">
+          <input type="email" class="form-control footer-input" placeholder="Your email">
+          <button class="btn btn-dark btn-sm">Join</button>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start">
+      <p class="mb-2 mb-md-0">&copy; 2026 feather softwares. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/cart-count.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+<!-- Profile dropdown behavior: mock login state and link protection -->
+<script>
+  (function(){
+    const profileName = document.getElementById('profileName');
+    const profileEmail = document.getElementById('profileEmail');
+    const signInBtn = document.getElementById('signInBtn');
+    const signUpBtn = document.getElementById('signUpBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const protectedLinks = document.querySelectorAll('.dropdown a.d-block');
+
+    function setLoggedOut(){
+      profileName.textContent = 'Guest';
+      profileEmail.textContent = 'Not signed in';
+      signInBtn.classList.remove('d-none');
+      signUpBtn.classList.remove('d-none');
+      logoutBtn.classList.add('d-none');
+    }
+
+    function setLoggedIn(user){
+      profileName.textContent = user.name || user.email || 'User';
+      profileEmail.textContent = user.email || '';
+      signInBtn.classList.add('d-none');
+      signUpBtn.classList.add('d-none');
+      logoutBtn.classList.remove('d-none');
+    }
+
+    // Load mock user from localStorage (for demo)
+    try{
+      const userJson = localStorage.getItem('ivalin_user');
+      if (userJson) setLoggedIn(JSON.parse(userJson));
+      else setLoggedOut();
+    } catch(e) { setLoggedOut(); }
+
+    // Logout action
+    logoutBtn.addEventListener('click', function(){
+      localStorage.removeItem('ivalin_user');
+      setLoggedOut();
+      // hide dropdown
+      const menuToggle = document.getElementById('profileMenu');
+      const inst = bootstrap.Dropdown.getInstance(menuToggle) || bootstrap.Dropdown.getOrCreateInstance(menuToggle);
+      inst.hide();
+    });
+
+    // Protect quick-links: redirect guest to login
+    protectedLinks.forEach(a => {
+      a.addEventListener('click', function(e){
+        const user = localStorage.getItem('ivalin_user');
+        if (!user) {
+          e.preventDefault();
+          window.location.href = 'login.html';
+        }
+      });
+    });
+  })();
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const name = localStorage.getItem("userName");
+  const email = localStorage.getItem("userEmail");
+
+  if (name && email) {
+    document.getElementById("profileName").textContent = name;
+    document.getElementById("profileEmail").textContent = email;
+
+    document.getElementById("signInBtn").classList.add("d-none");
+    document.getElementById("signUpBtn").classList.add("d-none");
+    document.getElementById("logoutBtn").classList.remove("d-none");
+  }
+
+  document.getElementById("logoutBtn").addEventListener("click", function() {
+    localStorage.clear();
+    window.location.reload();
+  });
+
+});
+</script>
+</body>
+</html>

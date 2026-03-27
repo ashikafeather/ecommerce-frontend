@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Baby Care Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/baby-care.css">
+</head>
+<style>
+    /* HEADER */
+.baby-header{
+  height:300px;
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.2)),
+    url('../images/kids/baby-care-things.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding-left:60px;
+  color:#fff;
+}
+.baby-header h1{font-size:3rem;}
+.baby-header p{margin-top:8px;}
+
+/* LAYOUT */
+.baby-container{
+  display:flex;
+  gap:40px;
+  padding:50px 60px;
+}
+
+/* FILTER */
+.baby-filter{
+  width:220px;
+}
+.baby-filter ul{list-style:none;}
+.filter-btn{
+  padding:10px;
+  border:1px solid #ddd;
+  margin-bottom:10px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.3s;
+}
+.filter-btn.active,
+.filter-btn:hover{
+  background:#4fc3f7;
+  color:#fff;
+}
+
+/* GRID */
+.baby-grid{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+/* CARD */
+.baby-card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.baby-card img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  background:#f9f9f9;
+}
+.baby-card h4{
+  padding:10px;
+  font-size:1rem;
+}
+.baby-card p{
+  color:#4fc3f7;
+  font-weight:600;
+}
+
+/* BUTTON */
+.cart-btn{
+  margin:10px 0 15px;
+  padding:10px 20px;
+  border:none;
+  background:#4fc3f7;
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+}
+.cart-btn:hover{
+  background:#039be5;
+}
+
+.baby-card:hover{
+  transform:translateY(-5px);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .baby-container{flex-direction:column;}
+  .baby-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:576px){
+  .baby-header{padding-left:20px;}
+  .baby-header h1{font-size:2rem;}
+  .baby-grid{grid-template-columns:1fr;}
+}
+
+</style>
+<body>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">IVALIN</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="halfSareeDrop" role="button" data-bs-toggle="dropdown">
+            Half Sarees
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="designer-halfsaree.html">Designer Half Saree</a></li>
+            <li><a class="dropdown-item" href="wedding-halfsaree.html">Wedding Half Saree</a></li>
+            <li><a class="dropdown-item" href="traditional-halfsaree.html">Traditional Half Saree</a></li>
+            <li><a class="dropdown-item" href="party-half-saree.html">Party Wear Half Saree</a></li>
+            <li><a class="dropdown-item" href="festival-halfsaree.html">Festival Half Saree</a></li>
+            <li><a class="dropdown-item" href="casual-halfsaree.html">Casual Half Saree</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="saree.html">Sarees</a></li>
+        <li class="nav-item"><a class="nav-link" href="salwars.html">Salwars</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="kidsDrop" role="button" data-bs-toggle="dropdown">
+            Kids
+          </a>
+          <ul class="dropdown-menu border-0 shadow-sm">
+            <li><a class="dropdown-item" href="boys-wear.html">Boys Wear</a></li>
+            <li><a class="dropdown-item" href="girls-dress.html">Girls Wear</a></li>
+            <li><a class="dropdown-item" href="baby-care.html">Baby Care</a></li>
+            <li><a class="dropdown-item" href="toys.html">Toys</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-danger" href="product.html">Sale</a></li>
+      </ul>
+
+      <div class="d-flex gap-3 align-items-center">
+        <i class="bi bi-search fs-5 cursor-pointer"></i>
+        <i class="bi bi-heart fs-5 cursor-pointer"></i>
+        <a href="cart.html" class="text-dark position-relative">
+          <i class="bi bi-cart fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount" style="font-size: 10px;">0</span>
+        </a>
+        <!-- Profile dropdown  -->
+        <div class="dropstart">
+          <a href="#" id="profileMenu" class="d-flex align-items-center text-dark dropdown-toggle profile-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="profile-icon-wrap">
+              <i class="bi bi-person-circle profile-icon" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="dropdown-menu shadow-sm p-3 profile-dropdown" aria-labelledby="profileMenu" style="min-width:320px;">
+            <div class="profile-header d-flex align-items-center gap-3 mb-2">
+              <div>
+                <i class="bi bi-person-circle profile-icon-lg" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div id="profileName" class="fw-bold">Guest</div>
+                <div id="profileEmail" class="text-muted" style="font-size:13px">Not signed in</div>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <a href="order-success.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">My Orders</a>
+              </div>
+              <div class="col-6">
+                <a href="wishlist.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Wishlist</a>
+              </div>
+              <div class="col-6">
+                <a href="cart.html" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Cart</a>
+              </div>
+              <div class="col-6">
+                <a href="#" id="couponsLink" class="d-block text-decoration-none text-dark small p-2 rounded hover-bg">Coupons</a>
+              </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="d-grid gap-2">
+              <a href="login.html" id="signInBtn" class="btn btn-outline-primary btn-sm">Sign In</a>
+              <a href="signup.html" id="signUpBtn" class="btn btn-primary btn-sm">Create Account</a>
+              <button id="logoutBtn" class="btn btn-light btn-sm d-none">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HEADER ===== -->
+<section class="baby-header">
+  <div class="baby-header-content">
+    <h1>Baby Care</h1>
+    <p>Gentle • Safe • Trusted Care for Your Baby</p>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<section class="baby-container">
+
+  <!-- FILTER -->
+  <aside class="baby-filter">
+    <h3>Filter By</h3>
+    <ul>
+      <li class="filter-btn active" data-filter="all">All</li>
+      <li class="filter-btn" data-filter="soap">Baby Soap</li>
+      <li class="filter-btn" data-filter="oil">Baby Oil</li>
+      <li class="filter-btn" data-filter="cream">Cream & Lotion</li>
+      <li class="filter-btn" data-filter="powder">Powder</li>
+    </ul>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <div class="baby-grid">
+
+    <div class="baby-card soap">
+  <a href="products.html?img=images/kids/natural-babysoap.webp&name=Natural%20Baby%20Soap&price=199">
+        <img src="images/kids/natural-babysoap.webp" alt="baby-soap" style="cursor: pointer;">
+      </a>
+      <h4>Natural Baby Soap</h4>
+      <p>₹199</p>
+<button class="btn btn-dark btn-sm add-to-cart"
+    onclick="addToCartFromList(
+      'Natural Baby Soap',
+      199,
+      'images/kids/natural-babysoap.webp'
+    )">
+    Add to Cart
+  </button>    </div>
+
+    <div class="baby-card oil">
+      <a href="products.html?img=images/kids/herbel-oil-baby.webp&name=Herbal%20Baby%20Oil&price=349">
+        <img src="images/kids/herbel-oil-baby.webp" alt="herbal-baby-oil" style="cursor: pointer;">
+      </a>
+      <h4>Herbal Baby Oil</h4>
+      <p>₹349</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Herbal Baby Oil',
+                349,
+                'images/kids/herbel-oil-baby.webp'
+              )">
+              Add to Cart
+            </button>
+    </div>
+
+    <div class="baby-card cream">
+      <a href="products.html?img=images/kids/moisturize-baby-cream.webp&name=Baby%20Moisturizing%20Cream&price=299">
+        <img src="images/kids/moisturize-baby-cream.webp" alt="baby-cream" style="cursor: pointer;">
+      </a>
+      <h4>Baby Moisturizing Cream</h4>
+      <p>₹299</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Baby Moisturizing Cream',
+                299,
+                'images/kids/moisturize-baby-cream.webp'
+              )">
+              Add to Cart
+            </button>
+    </div>
+
+    <div class="baby-card powder">
+      <a href="products.html?img=images/kids/baby-powder.webp&name=Baby%20Powder&price=249">
+        <img src="images/kids/baby-powder.webp" alt="baby-powder" style="cursor: pointer;">
+      </a>
+      <h4>Baby Powder</h4>
+      <p>₹249</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Baby Powder',
+                249,
+                'images/kids/baby-powder.webp'
+              )">
+              Add to Cart
+            </button>
+    </div>
+
+    <div class="baby-card oil cream">
+      <a href="products.html?img=images/kids/baby-lotion.webp&name=Soft%20Baby%20Lotion&price=399">
+        <img src="images/kids/baby-lotion.webp" alt="baby-lotion" style="cursor: pointer;">
+      </a>
+      <h4>Soft Baby Lotion</h4>
+      <p>₹399</p>
+            <button class="btn btn-dark btn-sm add-to-cart"
+              onclick="addToCartFromList(
+                'Soft Baby Lotion',
+                399,
+                'images/kids/baby-lotion.webp'
+              )">
+              Add to Cart
+            </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-custom">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Brand -->
+      <div class="col-md-4">
+        <h4 class="footer-brand">IVALIN</h4>
+        <p class="footer-text">
+          Celebrating the elegance of Indian tradition with contemporary designs.
+          Premium ethnic wear collections for every occasion.
+        </p>
+        <div class="footer-social">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div class="col-md-2">
+        <h6 class="footer-title">Shop</h6>
+        <ul class="footer-links">
+          <li><a href="#">Half Sarees</a></li>
+          <li><a href="#">Sarees</a></li>
+          <li><a href="#">Salwars</a></li>
+          <li><a href="#">Kids Wear</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Care -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Customer Care</h6>
+        <ul class="footer-links">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchange</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-3">
+        <h6 class="footer-title">Newsletter</h6>
+        <p class="footer-text">Get updates on new arrivals & offers.</p>
+        <div class="d-flex gap-2">
+          <input type="email" class="form-control footer-input" placeholder="Your email">
+          <button class="btn btn-dark btn-sm">Join</button>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start">
+      <p class="mb-2 mb-md-0">&copy; 2026 feather softwares. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// FILTER
+const filterBtns = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".baby-card");
+
+filterBtns.forEach(btn=>{
+  btn.onclick = ()=>{
+    filterBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+
+    let filter = btn.dataset.filter;
+
+    cards.forEach(card=>{
+      card.style.display =
+        filter === "all" || card.classList.contains(filter)
+        ? "block" : "none";
+    });
+  };
+});
+
+// ADD TO CART
+document.querySelectorAll(".cart-btn").forEach(btn=>{
+  btn.onclick = ()=>{
+    alert("Product added to cart ");
+  };
+});
+</script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart-count.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+</body>
+</html>
