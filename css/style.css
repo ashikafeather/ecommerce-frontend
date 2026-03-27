@@ -1,0 +1,470 @@
+/* ================= GENERAL ================= */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ================= NAVBAR ================= */
+.navbar-brand {
+  letter-spacing: 2px;
+}
+
+.nav-link {
+  font-weight: 500;
+  margin: 0 6px;
+}
+
+.nav-link:hover {
+  color: #c2185b !important;
+}
+
+/* Profile dropdown small tweaks */
+.dropdown .hover-bg:hover {
+  background-color: #f8f9ff;
+}
+
+.dropdown .dropdown-menu p,
+.dropdown .dropdown-menu a {
+  color: #333;
+}
+
+/* Profile dropdown styling */
+.profile-icon {
+  font-size: 20px;
+  color: #495057;
+  background: #f1f5ff;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.profile-icon-lg {
+  font-size: 48px;
+  color: #667eea;
+  background: rgba(102,126,234,0.08);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.profile-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.profile-toggle {
+  padding: 2px;
+}
+
+.profile-dropdown {
+  border-radius: 12px;
+}
+
+/* Ensure dropstart menus appear fully to the left on wider screens and fall back on mobile */
+.dropstart .profile-dropdown {
+  right: 100%;
+  left: auto;
+  margin-right: 0.5rem;
+  transform-origin: right top;
+}
+
+@media (max-width: 576px) {
+  .dropstart .profile-dropdown {
+    /* On very small screens show dropdown below the toggle instead of left */
+    right: auto !important;
+    left: 0 !important;
+    transform: none !important;
+    margin-right: 0 !important;
+    min-width: 260px !important;
+  }
+}
+
+.profile-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.profile-dropdown .d-grid .btn {
+  font-size: 14px;
+}
+
+/* Small improvement for dropdown items */
+.profile-dropdown .hover-bg {
+  border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+  .profile-dropdown { min-width: 260px !important; }
+}
+
+
+/* Custom Dropdown Styling */
+.navbar-nav .dropdown-menu {
+    border-radius: 12px;
+    padding: 10px;
+    min-width: 220px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.dropdown-item:hover {
+    background-color: #fceeee; 
+    color: #b33939; 
+    padding-left: 20px;
+}
+
+/* Optional: Show dropdown on hover for desktop */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cursor-pointer { cursor: pointer; }
+
+/* ================= HERO SLIDER ================= */
+.hero-slider {
+  height: 70vh;
+}
+
+.hero-slide {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-slider,
+  .hero-slide {
+    height: 55vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ================= CATEGORY ALIGN FIX ================= */
+
+.view-all-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.view-all-link:hover {
+  border-color: #000;
+}
+
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.category-img-round {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;        
+  object-position: center; 
+  border: 2px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+
+.category-card:hover .category-img-round {
+  transform: scale(1.05);
+}
+
+.category-card h6 {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+
+/*  Mobile responsive */
+@media (max-width: 768px) {
+  .category-img-round {
+    width: 160px;
+    height: 160px;
+  }
+}
+/* ================= PRODUCT CARDS ================= */
+.product-card {
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  height: 330px;
+  object-fit: cover;
+}
+
+.product-card h6 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+/* ================= BUTTON ================= */
+.btn-outline-dark {
+  border-radius: 20px;
+  padding: 6px 18px;
+}
+
+.btn-outline-dark:hover {
+  background-color: #c2185b;
+  border-color: #c2185b;
+  color: #fff;
+}
+
+/* ================= CUSTOMER REVIEWS ================= */
+.review-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: all 0.4s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.review-stars {
+  color: #f5a623;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.review-name {
+  font-weight: 600;
+}
+
+.review-location {
+  font-size: 12px;
+  color: #888;
+}
+/* ================= NEWSLETTER SECTION ================= */
+.newsletter-section {
+  background: #9e0b2f; /* rich maroon */
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle dotted pattern */
+.newsletter-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.3;
+}
+
+.newsletter-container {
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter-container h2 {
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.newsletter-container p {
+  font-size: 16px;
+  color: #f1f1f1;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  width: 320px;
+  max-width: 100%;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  padding: 14px 28px;
+  border: none;
+  background: #f0c36d; /* gold */
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #e0b354;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .newsletter-container h2 {
+    font-size: 30px;
+  }
+}
+
+
+/* ================= FOOTER ================= */
+.footer-custom {
+  background: #111;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+
+.footer-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-title {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-social i {
+  font-size: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.footer-social i:hover {
+  color: #fff;
+}
+
+.footer-input {
+  font-size: 14px;
+}
+
+.footer-line {
+  border-color: #333;
+  margin: 30px 0;
+}
+
+.footer-bottom-links a {
+  margin-left: 15px;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-bottom-links a:hover {
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .product-card img {
+    height: 250px;
+  }
+}
